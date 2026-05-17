@@ -81,10 +81,10 @@ Once configured:
 
 ## Troubleshooting
 
-- **"ERROR: EPWForge API 403"** — your API key isn't authorized for the requested feature (SSP / ensemble require Pro plan). Upgrade at [epwforge.com/pricing](https://epwforge.com/pricing).
-- **"ERROR: EPWForge API 429"** — rate-limited. Wait a moment and re-trigger `Run`.
-- **"ERROR: HTTP Error 401"** — API key is wrong or revoked.
-- **No file appears at SavePath** — check `Status` output for the error message; the component never raises silently.
+- **"ERROR: EPWForge API 402"** — out of credits. Each call costs 1 credit (unmodified TMY is free). Free signup gets 5 welcome credits; paid tiers refresh monthly. See [epwforge.com/pricing](https://epwforge.com/pricing).
+- **"ERROR: EPWForge API 429"** — rate-limited. Higher tiers get higher caps (Pro: 10/min, Pro+: 30/min). Wait briefly and re-trigger `Run`.
+- **"ERROR: HTTP Error 401"** — API key is wrong or revoked. Generate a new one at [/account](https://epwforge.com/account).
+- **No file appears at SavePath** — check the `Status` output for the error message; the component never raises silently.
 
 ## Want a compiled .gha plugin?
 

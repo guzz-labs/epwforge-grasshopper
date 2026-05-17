@@ -29,27 +29,37 @@ See [INSTALL.md](INSTALL.md) for full step-by-step. The 30-second version:
 4. Paste [`src/EPWForge_GenerateWeatherFile.py`](src/EPWForge_GenerateWeatherFile.py) into it.
 5. Wire and set `Run=True`.
 
-## Tier requirements
+## Pricing
 
-- **Free** — `find_station`-equivalent (n/a in this component)
-- **Starter** — TMYx / AMY generation, UHI, events, smoke (no SSP)
-- **Pro** — SSP future-climate morphing, ensembles
+EPWForge runs on a credit model. **Generation costs credits; unmodified TMY downloads are free.**
 
-Tier enforcement is server-side; an unauthorized request returns a clean error in the `Status` output.
+| Action | Credits |
+|---|---|
+| Unmodified TMY for any location | 0 (free) |
+| AMY year / SSP-morphed / UHI / event / smoke EPW | 1 |
+| Per-model CMIP6 ensemble (~20 EPWs) | 10 |
+
+| Plan | Monthly credits | $/mo |
+|---|---|---|
+| Free | 5 lifetime (one-time welcome) | $0 |
+| Starter | 10 | $49 |
+| Pro | 50 | $149 |
+| Pro+ | 100 | $249 |
+
+Sign up at [epwforge.com/account](https://epwforge.com/account) to get an API key + 5 welcome credits. Out-of-credits requests return a clean `402` in the component's `Status` output.
 
 ## Roadmap
 
 - [ ] Compiled `.gha` plugin (C# Grasshopper assembly)
-- [ ] Companion components: `Generate Design Day (DDY)`, `Generate Ensemble`, `Find Nearest Grid Cell`
+- [ ] Companion components: `Generate Design Day (DDY)`, `Generate Ensemble`, `Analyze Weather`, `Find Station`
 - [ ] Food4Rhino + Rhino Package Manager listing
 - [ ] Honeybee `Annual Simulation` integration example
 
 ## Links
 
 - **Platform:** [epwforge.com](https://epwforge.com)
-- **API docs:** [epwforge.com/docs](https://epwforge.com/docs)
-- **Python client:** `pip install epwforge` (forthcoming)
-- **MCP server (for AI agents):** `pip install epwforge-mcp` ([PyPI](https://pypi.org/project/epwforge-mcp/))
+- **API docs:** [epwforge.com/api-docs](https://epwforge.com/api-docs)
+- **MCP server (for AI agents):** [epwforge.com/mcp](https://epwforge.com/mcp) · `uvx epwforge-mcp`
 - **Maker:** [Guzzlabs](https://guzzlabs.com)
 
 ## License
